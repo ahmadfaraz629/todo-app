@@ -1,19 +1,15 @@
 const list = [];
-
-const hello = async () => {
-  let url = "http://localhost:3001/list/all";
+const getAllList = async () => {
+  //let url = "http://localhost:3001/list/all";
+  let url=process.env.REACT_APP_API_URL+"list/all";
   const setHeaders = { headers: { "Content-Type": "application/json" } };
   let myresult = await fetch(url, setHeaders);
   myresult = await myresult.json();
-  //console.log(myresult);
   if (myresult) {
     myresult.forEach((element) => {
       list.push(element);
-      //console.log(element);
     });
   }
 };
-
-hello();
-
+getAllList();
 export default { list };

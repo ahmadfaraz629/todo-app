@@ -1,11 +1,10 @@
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
-import rootReducers from "./store/reducers/index";
-import rootSagas from "./store/sagas/rootSagas";
-import AddOrEditList from  "./todo/AddOrEditList";
-import ListToDo from "./todo/Lists";
-import Wrapper from "./todo/components/Wrapper";
+import rootReducers from "store/reducers/index";
+import rootSagas from "store/sagas/index";
+import AddOrEditList from "pages/todo/containers/AddOrEditList";
+
 const sagaMiddleWare = createSagaMiddleware();
 
 const middlewares = [sagaMiddleWare];
@@ -14,9 +13,9 @@ sagaMiddleWare.run(rootSagas);
 function App() {
   return (
     <Provider store={store}>
-        <AddOrEditList />
+      <AddOrEditList />
+      {/* <p>{process.env.REACT_APP_API_URL}</p> */}
     </Provider>
   );
 }
-
 export default App;

@@ -1,8 +1,8 @@
 import React from "react";
-import {connect} from 'react-redux';
-import {Typography} from '@material-ui/core';
+import { connect } from "react-redux";
+import { Typography } from "@material-ui/core";
 const AddOrEditTodoInList = (props) => {
-    console.log(props);
+  console.log(props);
   return (
     <div>
       <Typography variant="h5">ADD Or Edit ToDo in List</Typography>
@@ -11,11 +11,4 @@ const AddOrEditTodoInList = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  selectedId: state.addTodoInList.selectedId,
-});
-const mapDispatchToProps = (dispatch) => ({});
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddOrEditTodoInList);
+export default AddOrEditTodoInList;

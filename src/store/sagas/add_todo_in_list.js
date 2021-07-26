@@ -11,7 +11,7 @@ import {
    IS_VISIBLE_ADD_TO_DO_IN_LIST_SAGA,
    SET_ID_FOR_ADDING_TO_DO,
    SET_ID_FOR_ADDING_TO_DO_SAGA
-  } from "../types";
+  } from "store/types";
 
 
   export function* isVisibleAddToDoInListSaga(actions){
@@ -25,11 +25,17 @@ export function* setIdForAddingToDo(actions){
 
 
 //watch setId for adding the add to do in list
-export function* watchSetIdForAddingToDo(){
-    yield takeEvery(SET_ID_FOR_ADDING_TO_DO_SAGA,setIdForAddingToDo)
-}
+// export function* watchSetIdForAddingToDo(){
+//     yield takeEvery(SET_ID_FOR_ADDING_TO_DO_SAGA,setIdForAddingToDo)
+// }
 
-//watch component ADD_TO_DO In list is visible or not
-  export function* watchIsVisibleAddToDoInListSaga(){
-      yield takeEvery(IS_VISIBLE_ADD_TO_DO_IN_LIST_SAGA,isVisibleAddToDoInListSaga)
+// //watch component ADD_TO_DO In list is visible or not
+//   export function* watchIsVisibleAddToDoInListSaga(){
+//       yield takeEvery(IS_VISIBLE_ADD_TO_DO_IN_LIST_SAGA,isVisibleAddToDoInListSaga)
+//   }
+
+  export function *watcherAddToDoInList(){
+    yield takeEvery(SET_ID_FOR_ADDING_TO_DO_SAGA,setIdForAddingToDo)
+    yield takeEvery(IS_VISIBLE_ADD_TO_DO_IN_LIST_SAGA,isVisibleAddToDoInListSaga)
   }
+  export default watcherAddToDoInList;
